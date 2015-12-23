@@ -2,189 +2,84 @@
 <html lang="en">
 
 <head>
-  <title>AFP Watermark</title>
-  <meta name="description" content="">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <!-- Fonts -->
-  <script src="js/lib/webfont.js"></script>
-  <script>
+    <title>AFP Watermark Infographie</title>
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <!-- Fonts -->
+    <script src="js/lib/webfont.js"></script>
+    <script>
     WebFont.load({
-      google: {
-        families: [
-          'Source Sans Pro'
-        ]
-      }
+        google: {
+            families: [
+                'Source Sans Pro'
+            ]
+        }
     });
-  </script>
-  <link rel="stylesheet" type="text/css" href="css/app.css" />
-
+    </script>
+    <link rel="stylesheet" type="text/css" href="css/app.css" />
 </head>
 
 <body>
-  <header>
-    <div class="header-wrapper">
-      <a class="toolkit-link" href="http://tools.apps.npr.org">
-        <span class="logo"><img src="http://media.npr.org/chrome/news/nprlogo_138x46.gif" alt="NPR" /></span> Newsroom Toolkit
-      </a>
-      <h1>AFP Watermark</h1>
-    </div>
-  </header>
-  <section id="content">
-    <div class="container-fluid">
-      <div class="wrapper">
-        <div class="canvas-wrapper">
-          <div class="canvas-cell">
-            <canvas id="imageCanvas" class="is-draggable"></canvas>
-            <p class="drag-help">Drag the image to adjust the crop.</p>
-          </div>
+    <header>
+        <div class="header-wrapper">
+            <a class="toolkit-link" href="http://tools.apps.npr.org">
+                <span class="logo"><img src="http://media.npr.org/chrome/news/nprlogo_138x46.gif" alt="NPR" /></span> Newsroom Toolkit
+            </a>
+            <h1>AFP Watermark Infographie</h1>
         </div>
-        <div class="editor">
-          <form autocomplete="off">
-            <ul class="form-header nav nav-pills">
-              <li role="presentation" class="disabled">Image</li>
-              <li role="presentation" class="active"><a href="#image-file" data-toggle="pill">File</a></li>
-              <li role="presentation"><a href="#image-url" data-toggle="pill">URL</a></li>
-            </ul>
+    </header>
+    <section id="content">
+        <div class="container-fluid">
+            <div class="wrapper">
+                <div class="editor">
+                    <form autocomplete="off">
+                        <ul class="form-header nav nav-pills">
+                            <li role="presentation" class="disabled">Image</li>
+                            <li role="presentation" class="active"><a href="#image-file" data-toggle="pill">File</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="form-group tab-pane active" id="image-file">
+                                <div class="fileinput fileinput-new input-group" data-provides="fileinput">
+                                    <div class="form-control" data-trigger="fileinput"><i class="fa fa-file fileinput-exists"></i> <span class="custom-filename" contentEditable="true"></span> <span class="fileinput-filename"></span></div>
+                                    <span class="input-group-addon btn btn-default btn-file"><span class="fileinput-new">Select file</span><span class="fileinput-exists">Change</span>
+                                    <input type="file" id="imageLoader" name="imageLoader">
+                                    </span>
+                                    <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+                                </div>
+                                <span class="help">Click to edit name</span>
+                            </div>
+                        </div>
+<!--                         <div class="form-group">
 
-            <div class="tab-content">
-              <div class="form-group tab-pane active" id="image-file">
-                <div class="fileinput fileinput-new input-group" data-provides="fileinput">
-                  <div class="form-control" data-trigger="fileinput"><i class="fa fa-file fileinput-exists"></i> <span class="custom-filename" contentEditable="true"></span> <span class="fileinput-filename"></span></div>
-                  <span class="input-group-addon btn btn-default btn-file"><span class="fileinput-new">Select file</span><span class="fileinput-exists">Change</span>
-                  <input type="file" id="imageLoader" name="imageLoader">
-                  </span>
-                  <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
+                        </div> -->
+                        <div class="form-group">
+                            <p class="help-text visible-xs">To use the image on iOS, tap save to open the watermarked image in a new tab, then long tap the image and select “Save Image” to save the image to your camera roll.</p>
+                            <button id="addLogo" class="btn btn-lg btn-block save-btn">Add an additional logo</button>
+                            <button id="save" class="btn btn-primary btn-lg btn-block save-btn" download="download.png">Save</button>
+                        </div>
+                        <div class="form-group">
+                            <h6 class="form-header">Sharing Guidelines</h6>
+                            <ul class="guidelines">
+                                <li>Only AFP journalists and employees can tweet AFP graphics that are already on AFPforum</li>
+                                <li>Do not tweet pictures with graphic content and pay close attention to any special instructions</li>
+                            </ul>
+                        </div>
+                        <p class="sample-credit">Sample image: /AFP</p>
+                    </form>
                 </div>
-                <span class="help">Click to edit name</span>
-              </div>
-
-              <div class="form-group tab-pane" id="image-url">
-                <div class="input-group">
-                  <input type="text" class="form-control" id="imageLink" name="imageLink">
-                  <span id="imageLinkButton" class="input-group-addon btn btn-default btn-file">Load Image</span>
-                </div>
-                <span class="help">Click to edit name</span>
-              </div>
+                <div id="canvas-container" class="canvas-wrapper"></div>
             </div>
-
-            <div class="form-group">
-              <h6 class="control-label">Copyright Holder <span class="required is-visible">(Required)</span></h6>
-
-              <select class="copyright-holder form-control">
-                <option value="afp" active>AFP</option>
-                <option value="none">None</option>
-<!--                 <option value="freelance">Freelance</option> -->
-<!--                 <option value="ap">AP</option> -->
-<!--                 <option value="getty">Getty</option> -->
-<!--                 <option value="third-party">Third-Party/Courtesy</option> -->
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label class="control-label">Photographer <span class="required">(Required)</span></label>
-              <input type="text" class="form-control" id="photographer" name="photographer">
-            </div>
-
-            <div class="form-group" style="display: none;">
-              <label class="control-label">Source <span class="required">(Required)</span></label>
-              <input type="text" class="form-control" id="source" name="source">
-            </div>
-
-            <div class="row">
-              <div class="form-group hidden-xs hidden-sm col-lg-6">
-                <h6 class="control-label">Crop</h6>
-                <div class="btn-group btn-group-justified btn-group-sm" data-toggle="buttons">
-                  <label class="btn btn-primary">
-                    <input type="radio" name="crop" id="twitter" value="twitter"> 16x9 <i class="fa fa-twitter"></i>
-                  </label>
-                  <!-- <label class="btn btn-primary active">
-                    <input type="radio" name="crop" id="twitter" value="twitter" checked> <i class="fa fa-twitter"></i>
-                  </label> -->
-                  <label class="btn btn-primary active">
-                    <input type="radio" name="crop" id="original" value="original" checked> Original
-                  </label>
-
-                </div>
-              </div>
-
-              <div class="form-group col-lg-6">
-                <h6 class="control-label">Logo</h6>
-
-                <div class="btn-group btn-group-justified btn-group-sm" data-toggle="buttons">
-                  <!-- <label class="btn btn-primary active">
-                    <input type="radio" name="logo" id="npr" value="npr" checked> NPR
-                  </label> -->
-                  <label class="btn btn-primary active">
-                    <input type="radio" name="logo" id="afp" value="afp" checked> AFP
-                  </label>
-                  <!--                       <label class="btn btn-primary">
-  <input type="radio" name="logo" id="music" value="music">
-  NPR Music
-</label> -->
-                </div>
-              </div>
-            </div>
-            <div class="row">
-              <div class="form-group col-lg-6 col-lg-push-6">
-                <h6 class="control-label">Logo Color</h6>
-                <div class="btn-group btn-group-justified btn-group-sm" data-toggle="buttons">
-                  <label class="btn btn-primary">
-                    <input type="radio" name="logoColor" id="whiteLogo" value="white" checked> White
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="radio" name="logoColor" id="blackLogo" value="black"> Black
-                  </label>
-                  <label class="btn btn-primary active">
-                    <input type="radio" name="logoColor" id="blueLogo" value="blue" checked> Blue
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="radio" name="logoColor" id="transparentLogo" value="transparent"> Transparent
-                  </label>
-                </div>
-              </div>
-              <div class="form-group col-lg-6 col-lg-pull-6">
-                <h6 class="control-label">Text Color</h6>
-                <div class="btn-group btn-group-justified btn-group-sm" data-toggle="buttons">
-                  <label class="btn btn-primary active">
-                    <input type="radio" name="textColor" id="whiteText" value="white" checked> White
-                  </label>
-                  <label class="btn btn-primary">
-                    <input type="radio" name="textColor" id="blackText" value="black"> Black
-                  </label>
-                </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <h6 class="form-header">Sharing Guidelines</h6>
-              <ul class="guidelines">
-                <li>Only AFP journalists and employees can tweet AFP photos that are already on AFPforum</li>
-                <li>Do not tweet pictures with graphic content and pay close attention to any special instructions</li>
-                <li>Do not tweet pictures from AFP partners (Getty, DPA, Anadolu, Ria Novosti…)</li>
-              </ul>
-            </div>
-
-            <div class="form-group">
-              <p class="help-text visible-xs">To use the image on iOS, tap save to open the watermarked image in a new tab, then long tap the image and select “Save Image” to save the image to your camera roll.</p>
-              <button class="btn btn-primary btn-lg btn-block save-btn" download="download.png" disabled>Save</button>
-            </div>
-
-            <p class="sample-credit">Sample image: Anne-Claire Huet/AFP</p>
-          </form>
         </div>
-      </div>
-
-
-
-    </div>
-  </section>
-  <script type="text/javascript" src="js/lib/jquery.js"></script>
-  <script type="text/javascript" src="js/lib/underscore.js"></script>
-  <script type="text/javascript" src="js/lib/modernizr.js"></script>
-  <script type="text/javascript" src="js/lib/bootstrap.js"></script>
-  <script type="text/javascript" src="js/lib/fileinput.js"></script>
-  <script type="text/javascript" src="js/app.js"></script>
+    </section>
+    <script type="text/javascript" src="js/lib/jquery.js"></script>
+    <script type="text/javascript" src="js/lib/underscore.js"></script>
+    <script type="text/javascript" src="js/lib/modernizr.js"></script>
+    <script type="text/javascript" src="js/lib/bootstrap.js"></script>
+    <script type="text/javascript" src="js/lib/fileinput.js"></script>
+    <script type="text/javascript" src="js/lib/konva.min.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
 </body>
 
 </html>

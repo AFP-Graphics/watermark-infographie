@@ -8151,7 +8151,7 @@ header a.toolkit-link:hover {
 .wrapper {
   padding: 30px;
 }
-@media screen and (min-width: 960px) {
+/*@media screen and (min-width: 960px) {
   .wrapper {
     position: absolute;
     top: 87px;
@@ -8163,7 +8163,7 @@ header a.toolkit-link:hover {
 }
 @media screen and (min-width: 960px) {
   .editor {
-    position: absolute;
+    /*position: absolute;
     left: 670px;
     right: 0;
     top: 0;
@@ -8171,38 +8171,24 @@ header a.toolkit-link:hover {
     padding: 30px;
     overflow: scroll;
   }
-}
+}*/
 input[type="file"] {
   font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 15px;
   color: #999;
 }
-canvas,#imageCanvas {
-  -webkit-transform: scale(0.32);
-  -moz-transform: scale(0.32);
-  -ms-transform: scale(0.32);
-  -o-transform: scale(0.32);
-  transform: scale(0.32);
+#canvas-container .konvajs-content {
+  margin: auto;
+/*  -webkit-transform: scale(0.5);
+  -moz-transform: scale(0.5);
+  -ms-transform: scale(0.5);
+  -o-transform: scale(0.5);
+  transform: scale(0.5);
   -webkit-transform-origin: top left;
   -moz-transform-origin: top left;
   -ms-transform-origin: top left;
   -o-transform-origin: top left;
-  transform-origin: top left;
-}
-#imageCanvas.is-draggable {
-  cursor: ns-resize;
-}
-#imageCanvas.is-draggable.shallow {
-  cursor: ew-resize;
-}
-@media screen and (min-width: 700px) {
-  #imageCanvas {
-    -webkit-transform: scale(0.64);
-    -moz-transform: scale(0.64);
-    -ms-transform: scale(0.64);
-    -o-transform: scale(0.64);
-    transform: scale(0.64);
-  }
+  transform-origin: top left;*/
 }
 .control-label,
 .form-header {
@@ -8285,7 +8271,7 @@ canvas,#imageCanvas {
   position: relative;
   margin: 0 auto;
 }
-@media screen and (min-width: 700px) {
+/*@media screen and (min-width: 700px) {
   .canvas-cell {
     width: 640px;
     height: 400px;
@@ -8295,7 +8281,7 @@ canvas,#imageCanvas {
   .canvas-cell {
     height: auto;
   }
-}
+}*/
 .drag-help {
   position: absolute;
   top: 370px;
@@ -8316,12 +8302,12 @@ canvas,#imageCanvas {
   width: auto;
   margin: 0 -30px 24px;
 }
-@media screen and (min-width: 960px) {
+/*@media screen and (min-width: 960px) {
   .canvas-wrapper {
     width: 640px;
     margin: 0;
   }
-}
+}*/
 .help-text {
   font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #999;
