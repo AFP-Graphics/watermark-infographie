@@ -24,9 +24,6 @@
 <body>
     <header>
         <div class="header-wrapper">
-            <a class="toolkit-link" href="http://tools.apps.npr.org">
-                <span class="logo"><img src="http://media.npr.org/chrome/news/nprlogo_138x46.gif" alt="NPR" /></span> Newsroom Toolkit
-            </a>
             <h1>AFP Watermark Infographie</h1>
         </div>
     </header>
@@ -35,27 +32,11 @@
             <div class="wrapper">
                 <div class="editor">
                     <form autocomplete="off">
-                        <ul class="form-header nav nav-pills">
-                            <li role="presentation" class="disabled">Image</li>
-                            <li role="presentation" class="active"><a href="#image-file" data-toggle="pill">File</a></li>
-                        </ul>
-                        <div class="tab-content">
-                            <div class="form-group tab-pane active" id="image-file">
-                                <div class="fileinput fileinput-new input-group" data-provides="fileinput">
-                                    <div class="form-control" data-trigger="fileinput"><i class="fa fa-file fileinput-exists"></i> <span class="custom-filename" contentEditable="true"></span> <span class="fileinput-filename"></span></div>
-                                    <span class="input-group-addon btn btn-default btn-file"><span class="fileinput-new">Select file</span><span class="fileinput-exists">Change</span>
-                                    <input type="file" id="imageLoader" name="imageLoader">
-                                    </span>
-                                    <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
-                                </div>
-                                <span class="help">Click to edit name</span>
-                            </div>
-                        </div>
-<!--                         <div class="form-group">
-
-                        </div> -->
                         <div class="form-group">
-                            <p class="help-text visible-xs">To use the image on iOS, tap save to open the watermarked image in a new tab, then long tap the image and select “Save Image” to save the image to your camera roll.</p>
+                            <label for="imageLoader">
+                                <div class="btn btn-lg btn-primary btn-block btn-file">Select file</div>
+                            </label>
+                            <input id="imageLoader" type="file" />
                             <button id="addLogo" class="btn btn-lg btn-block save-btn">Add an additional logo</button>
                             <button id="save" class="btn btn-primary btn-lg btn-block save-btn" download="download.png">Save</button>
                         </div>
@@ -73,11 +54,7 @@
             </div>
         </div>
     </section>
-    <script type="text/javascript" src="js/lib/jquery.js"></script>
-    <script type="text/javascript" src="js/lib/underscore.js"></script>
     <script type="text/javascript" src="js/lib/modernizr.js"></script>
-    <script type="text/javascript" src="js/lib/bootstrap.js"></script>
-    <script type="text/javascript" src="js/lib/fileinput.js"></script>
     <script type="text/javascript" src="js/lib/konva.min.js"></script>
     <script type="text/javascript" src="js/app.js"></script>
 </body>

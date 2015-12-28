@@ -6,18 +6,23 @@ var stage;
 var layerImage = new Konva.Layer();
 var layerLogo = new Konva.Layer();
 
+var numLogo = 1;
+
 init("assets/" + filename);
 
-$('#imageLoader').on('change', function(e) {
+document.querySelector('#imageLoader').addEventListener('change', function(e) {
   handleImage(e);
 });
 
-$('#addLogo').on('click', function(e) {
+document.querySelector('#addLogo').addEventListener('click', function(e) {
   e.preventDefault();
-  loadLogo("assets/logo-afp.png");
+  if(numLogo<=4) {
+    loadLogo("assets/logo-afp.png");
+    numLogo++;
+  }
 });
 
-$('#save').on('click', function(e) {
+document.querySelector('#save').addEventListener('click', function(e) {
   e.preventDefault();
   saveImage(filename);
 });
@@ -39,9 +44,12 @@ function init(url) {
 var handleImage = function(e) {
   if (e.target.value !== "") {
     var reader = new FileReader();
-    reader.onload = function(e) {
+    reader.onload = function(f) {
       stage.destroy();
-      init(e.target.result);
+      numLogo = 1;
+
+      filename = e.target.files[0].name.match(/(.*)\./)[1] ? e.target.files[0].name.match(/(.*)\./)[1] : e.target.files[0].name;
+      init(f.target.result);
     }
     reader.readAsDataURL(e.target.files[0]);
   }
@@ -56,10 +64,15 @@ function loadImage(url)  {
 }
 
 function addImage(imageObj) {
-  var heightImage = imageObj.height * width / imageObj.width;
+  var widthImage = imageObj.width/2,
+      heightImage = imageObj.height * widthImage / imageObj.width;
+
+    // heightImage = imageObj.height * width / ;
+    // widthImage = width;
+
 
   stage.setAttrs({
-    width: width,
+    width: widthImage,
     height: heightImage
   });
 
@@ -67,7 +80,7 @@ function addImage(imageObj) {
     image: imageObj,
     x: 0,
     y: 0,
-    width: width,
+    width: widthImage,
     height: heightImage,
     draggable: false
   });
